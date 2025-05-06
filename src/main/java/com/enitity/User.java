@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,13 +19,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Getter  
+@AllArgsConstructor 
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
+	 
 	private String userName;
+	
+
 	private String passWord;
 	
 	@OneToMany(cascade=CascadeType.ALL,mappedBy = "user")
@@ -33,7 +36,6 @@ public class User {
 	
 		return userName;
 	}
-
 	public Integer getUserId() {
 		return userId;
 	}
@@ -58,7 +60,7 @@ public class User {
 		this.products = products;
 	}
 
-	public void setUserName(String userName2) {
+	public void setUserName(String userName) {
 		this.userName=userName;
 		
 	}

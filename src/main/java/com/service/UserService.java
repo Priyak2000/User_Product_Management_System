@@ -21,10 +21,12 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public void addUser(User user) {
+		System.out.println("User Name: " + user.getUserName());
+		System.out.println("Password: " + user.getPassWord());
 		userRepository.save(user);
 	
 	}
-	public void addUser(UserDTO userDTO) {
+	public void addUser1(UserDTO userDTO) {
 	    User user = new User();
 	    user.setUserName(userDTO.getUserName());
 	    user.setPassWord(userDTO.getPassWord());
